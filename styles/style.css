@@ -150,7 +150,7 @@ button {
   align-content: center;
   justify-content: center;
   background-image: url(/Game_assets/button-background.jpg);
-  opacity: 0.95;
+  opacity: 0.85;
   background-size: cover;
   color: rgb(255, 255, 255);
   border-color: black;

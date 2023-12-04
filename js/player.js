@@ -29,7 +29,6 @@ class Player {
   }
 
   updatePosition() {
-    console.log("test");
     this.element.style.left = `${this.x}px`;
     this.element.style.bottom = `${this.y}px`;
     this.element.style.height = `${this.height}px`;
