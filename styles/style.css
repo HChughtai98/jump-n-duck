@@ -190,3 +190,22 @@ button:hover {
 .playerModel {
   border: solid red 1px;
 }
+
+#easterEgg {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 85%;
+  margin-left: 450px;
+  margin-top: 70px;
+  border: solid 2px black;
+  border-radius: 7px;
+}
+
+#back-btn {
+  display: flex;
+  position: absolute;
+  margin-left: 1000px;
+}
