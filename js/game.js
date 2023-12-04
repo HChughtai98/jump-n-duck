@@ -77,6 +77,18 @@ class Game {
     this.easterEgg.appendChild(easterEggImage);
     this.easterEgg.appendChild(easterEggText);
     this.easterEgg.appendChild(backButton);
+
+    void easterEggImage.offsetWidth;
+
+    // Use JavaScript to add the "show" class after a short delay
+    let opacity = 0;
+    const fadeInInterval = setInterval(() => {
+      opacity += 0.01; // Adjust the step as needed
+      easterEggImage.style.opacity = opacity;
+      if (opacity >= 1) {
+        clearInterval(fadeInInterval);
+      }
+    }, 20); // Adjust the interval as needed
   }
 
   setStyle(element) {

@@ -209,3 +209,14 @@ button:hover {
   position: absolute;
   margin-left: 1000px;
 }
+
+/* Add this at the end of style.css */
+.fade-in {
+  opacity: 0;
+  transition: opacity 0s ease forwards; /* Adjust the duration and easing as needed */
+}
+
+#easterEgg.fade-in {
+  opacity: 1;
+  transition: opacity 1s ease;
+}

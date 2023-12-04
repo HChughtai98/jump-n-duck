@@ -15,6 +15,7 @@ window.addEventListener("load", () => {
   function startEasterEgg() {
     if (game) {
       game.activateEasterEgg();
+      game.easterEgg.classList.add("fade-in");
     }
   }
 
