@@ -7,13 +7,28 @@
     <link rel="stylesheet" href="/styles/style.css" />
   </head>
   <body>
+    <!-- Landing Page -->
     <div id="landingPage">
-      <button id="start-btn">Start</button>
-      <button id="controls-btn">Controls</button>
+      <div class="iconSplash">
+        <img src="/Game_assets/Spiderman_splashText.png" />
+      </div>
+      <div class="subText">
+        <img src="/Game_assets/spiderman_splashSubText.png" />
+      </div>
+      <div class="buttons">
+        <button id="start-btn">Start</button>
+        <button id="controls-btn">Controls</button>
+      </div>
     </div>
 
-    <div id="gamePage"></div>
+    <!-- Show this screen when Start button is clicked -->
+    <div id="gameScreen"></div>
 
+    <!-- Show this screen when Game is over -->
     <div id="endScreenPage"></div>
+
+    <script src="/js/player.js"></script>
+    <script src="/js/game.js"></script>
+    <script src="/js/script.js"></script>
   </body>
 </html>
