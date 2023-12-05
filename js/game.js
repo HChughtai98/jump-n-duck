@@ -12,6 +12,7 @@ class Game {
     this.obstacles = [];
     this.animateId = null;
     this.gameIsOver = false;
+    this.restartButton = document.getElementById("restart-btn");
   }
 
   startGame() {
@@ -63,7 +64,7 @@ class Game {
     this.gameIsOver = true;
     this.gameScreen.style.display = "none";
     this.gameOverPage.style.display = "block";
-    this.restartButton.style.display = "flex";
+    this.restartButton.style.display = "block";
     if (this.player && this.player.element) {
       this.gameScreen.removeChild(this.player.element);
       this.player = null;
@@ -75,6 +76,7 @@ class Game {
       }
     });
     this.obstacles = null;
+    this.gameScreen.style.display = "none";
   }
 
   setupRestartButton() {
