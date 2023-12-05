@@ -188,10 +188,6 @@ button:hover {
   background-size: cover;
 }
 
-.playerModel {
-  border: solid red 1px;
-}
-
 #easterEgg {
   display: none;
   position: absolute;
@@ -222,6 +218,13 @@ button:hover {
   transition: opacity 1s ease;
 }
 
-.fireBall {
-  border: solid red 1px;
+#restart-btn {
+  display: none;
+  position: absolute;
+  margin-left: 45%;
+  margin-top: 5%;
+  height: 100px;
+  width: 250px;
+  justify-content: center;
+  align-items: center;
 }

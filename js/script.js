@@ -32,5 +32,14 @@ window.addEventListener("load", () => {
   controlsButton.addEventListener("click", function () {
     location.reload();
   });
-  
+
+  restartButton.addEventListener("click", function () {
+    if (game && game.gameIsOver) {
+      startGame();
+    }
+  });
+
+  backButton.addEventListener("click", function () {
+    location.reload();
+  });
 });

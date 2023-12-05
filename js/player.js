@@ -4,7 +4,7 @@ class Player {
     this.x = 100;
     this.y = 45;
     this.height = 160;
-    this.width = 120;
+    this.width = 100;
     this.directionX = 0;
     this.directionY = 0;
 
@@ -43,15 +43,31 @@ class Player {
     setTimeout(() => {
       this.element.style.transform = "translateY(0)";
       this.isJumping = false;
-    }, 340);
+    }, 360);
   }
 
   crouch() {
     if (!this.isJumping) {
-      this.height = 80;
+      this.height = 100;
       setTimeout(() => {
         this.height = 160;
       }, 320);
+    }
+  }
+
+  didCollide(obstacle) {
+    const playerRect = this.element.getBoundingClientRect();
+    const obstacleRect = obstacle.element.getBoundingClientRect();
+
+    if (
+      playerRect.left < obstacleRect.right &&
+      playerRect.right > obstacleRect.left &&
+      playerRect.top < obstacleRect.bottom &&
+      playerRect.bottom > obstacleRect.top
+    ) {
+      return true;
+    } else {
+      return false;
     }
   }
 }

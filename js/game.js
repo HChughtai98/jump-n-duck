@@ -11,7 +11,7 @@ class Game {
     this.player = null;
     this.obstacles = [];
     this.animateId = null;
-    /*     this.collision =  */
+    this.gameIsOver = false;
   }
 
   startGame() {
@@ -34,6 +34,9 @@ class Game {
         }
       }, i * 550);
     }
+
+    // Call the method to set up the restart button
+    this.setupRestartButton();
   }
 
   gameLoop() {
@@ -41,10 +44,8 @@ class Game {
 
     this.obstacles.forEach((currentObstacle) => {
       currentObstacle.move();
-
-      // Check for collision
-      if (this.player.rightSide > currentObstacle.leftSide) {
-        // Collision occurred, end the game
+      if (this.player.didCollide(currentObstacle)) {
+        this.gameIsOver = true;
         this.endGame();
       }
     });
@@ -61,7 +62,19 @@ class Game {
   endGame() {
     this.gameIsOver = true;
     this.gameScreen.style.display = "none";
-    this.gameOverPage.style.display = "flex";
+    this.gameOverPage.style.display = "block";
+    this.restartButton.style.display = "flex";
+    if (this.player && this.player.element) {
+      this.gameScreen.removeChild(this.player.element);
+      this.player = null;
+    }
+
+    this.obstacles.forEach((obstacle) => {
+      if (obstacle.element) {
+        this.gameScreen.removeChild(obstacle.element);
+      }
+    });
+    this.obstacles = null;
   }
 
   setupRestartButton() {
@@ -120,15 +133,14 @@ class Game {
 
     void easterEggImage.offsetWidth;
 
-    // Use JavaScript to add the "show" class after a short delay
     let opacity = 0;
     const fadeInInterval = setInterval(() => {
-      opacity += 0.01; // Adjust the step as needed
+      opacity += 0.01;
       easterEggImage.style.opacity = opacity;
       if (opacity >= 1) {
         clearInterval(fadeInInterval);
       }
-    }, 20); // Adjust the interval as needed
+    }, 20);
   }
 
   setStyle(element) {
