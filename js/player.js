@@ -3,8 +3,8 @@ class Player {
     this.gameScreen = gameScreen;
     this.x = 100;
     this.y = 45;
-    this.height = 110;
-    this.width = 90;
+    this.height = 160;
+    this.width = 120;
     this.directionX = 0;
     this.directionY = 0;
 
@@ -28,10 +28,15 @@ class Player {
     this.isJumping = false;
   }
 
+  getRightSide() {
+    return this.x + this.width;
+  }
+
   updatePosition() {
     this.element.style.left = `${this.x}px`;
     this.element.style.bottom = `${this.y}px`;
     this.element.style.height = `${this.height}px`;
+    this.rightSide = this.getRightSide();
   }
 
   jump() {
@@ -40,15 +45,15 @@ class Player {
     setTimeout(() => {
       this.element.style.transform = "translateY(0)";
       this.isJumping = false;
-    }, 200);
+    }, 340);
   }
 
   crouch() {
     if (!this.isJumping) {
-      this.height = 60;
+      this.height = 80;
       setTimeout(() => {
-        this.height = 110;
-      }, 200);
+        this.height = 160;
+      }, 320);
     }
   }
 }

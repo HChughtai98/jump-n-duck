@@ -109,6 +109,7 @@ body {
   line-height: 1;
   background-image: url(/Game_assets/landingpage-background.jpg);
   background-size: cover;
+  overflow: hidden;
 }
 ol,
 ul {
@@ -219,4 +220,8 @@ button:hover {
 #easterEgg.fade-in {
   opacity: 1;
   transition: opacity 1s ease;
+}
+
+.fireBall {
+  border: solid red 1px;
 }

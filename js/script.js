@@ -32,4 +32,5 @@ window.addEventListener("load", () => {
   controlsButton.addEventListener("click", function () {
     location.reload();
   });
+  
 });
