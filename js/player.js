@@ -28,15 +28,13 @@ class Player {
     this.isJumping = false;
   }
 
-  getRightSide() {
-    return this.x + this.width;
-  }
-
   updatePosition() {
     this.element.style.left = `${this.x}px`;
     this.element.style.bottom = `${this.y}px`;
+
+    // Adjust the hitbox based on the current state
     this.element.style.height = `${this.height}px`;
-    this.rightSide = this.getRightSide();
+    this.element.style.width = `${this.width}px`;
   }
 
   jump() {

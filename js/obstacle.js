@@ -1,8 +1,8 @@
 class Obstacle {
   constructor(gameScreen, top) {
     this.gameScreen = gameScreen;
-    this.width = 50;
-    this.height = 40;
+    this.width = 35;
+    this.height = 30;
     this.left = 1880;
     /*this.top = Math.floor(Math.random() * (300 + 800)); */
     this.top = top;
@@ -27,13 +27,8 @@ class Obstacle {
     this.updatePosition();
   }
 
-  getLeftSide() {
-    return this.left;
-  }
-
   updatePosition() {
     this.element.style.left = `${this.left}px`;
     this.element.style.top = `${this.top}px`;
-    this.leftSide = this.getLeftSide();
   }
 }

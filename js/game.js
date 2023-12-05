@@ -11,13 +11,7 @@ class Game {
     this.player = null;
     this.obstacles = [];
     this.animateId = null;
-    this.restartButton = document.getElementById("restart-btn"); // assuming you have an element with id "restart-btn"
-
-    if (this.restartButton) {
-      this.restartButton.addEventListener("click", () => {
-        this.restartGame();
-      });
-    }
+    /*     this.collision =  */
   }
 
   startGame() {
@@ -42,60 +36,22 @@ class Game {
     }
   }
 
-  checkCollision(player, obstacle) {
-    const playerLeft = player.x;
-    const playerRight = player.x + player.width;
-    const playerTop = player.y;
-    const playerBottom = player.y + player.height;
-
-    const obstacleLeft = obstacle.left;
-    const obstacleRight = obstacle.left + obstacle.width;
-    const obstacleTop = obstacle.top;
-    const obstacleBottom = obstacle.top + obstacle.height;
-
-    console.log("Player:", playerLeft, playerRight, playerTop, playerBottom);
-    console.log(
-      "Obstacle:",
-      obstacleLeft,
-      obstacleRight,
-      obstacleTop,
-      obstacleBottom
-    );
-
-    const isCollision =
-      playerLeft < obstacleRight &&
-      playerRight > obstacleLeft &&
-      playerTop < obstacleBottom &&
-      playerBottom > obstacleTop;
-
-    console.log("Collision detected:", isCollision);
-
-    return isCollision;
-  }
-
   gameLoop() {
     if (this.gameIsOver) return;
 
     this.obstacles.forEach((currentObstacle) => {
       currentObstacle.move();
 
-      // Add a console log here
-      console.log("Checking collision...");
-      if (this.checkCollision(this.player, currentObstacle)) {
+      // Check for collision
+      if (this.player.rightSide > currentObstacle.leftSide) {
         // Collision occurred, end the game
-        console.log("Collision detected, ending game...");
         this.endGame();
       }
     });
 
     this.update();
-    window.requestAnimationFrame(() => this.gameLoop());
-  }
 
-  endGame() {
-    this.gameIsOver = true;
-    this.gameScreen.style.display = "none";
-    this.gameOverPage.style.display = "flex";
+    window.requestAnimationFrame(() => this.gameLoop());
   }
 
   update() {
