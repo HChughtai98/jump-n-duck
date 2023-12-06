@@ -175,6 +175,7 @@ class Game {
     this.easterEgg.appendChild(easterEggText);
     this.easterEgg.appendChild(backButton);
 
+    // Trigger reflow to apply styles
     void easterEggImage.offsetWidth;
 
     let opacity = 0;
