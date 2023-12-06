@@ -16,12 +16,10 @@ class Game {
     this.gameIsOver = false;
     this.restartButton = document.getElementById("restart-btn");
 
-    // Start the interval to increase the score every millisecond
     setInterval(() => {
       this.increaseScore();
     }, 1);
 
-    // Call the method to set up the restart button
     this.setupRestartButton();
   }
 
@@ -83,15 +81,12 @@ class Game {
     this.gameOverPage.style.display = "flex";
     this.restartButton.style.display = "flex";
 
-    // Create a container for Restart button
     const buttonContainer = document.createElement("div");
     buttonContainer.appendChild(this.restartButton);
 
-    // Append the container to the gameOverPage
-    this.gameOverPage.innerHTML = ""; // Clear existing content
+    this.gameOverPage.innerHTML = "";
     this.gameOverPage.appendChild(buttonContainer);
 
-    // Create a container for the score display
     const scoreContainer = document.createElement("div");
     scoreContainer.textContent = `Score: ${this.score}`;
     scoreContainer.style.color = "white";
@@ -137,7 +132,7 @@ class Game {
 
   resetScore() {
     this.score = 0;
-    this.updateScoreDisplay(); // Update the score display after resetting
+    this.updateScoreDisplay();
   }
 
   activateEasterEgg() {
