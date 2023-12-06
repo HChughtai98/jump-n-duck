@@ -4,6 +4,7 @@ window.addEventListener("load", () => {
   const backButton = document.getElementById("back-btn");
 
   let game;
+  let mKeyPressed = false; // Flag to track if 'M' has been pressed
 
   function startGame() {
     game = new Game();
@@ -12,9 +13,10 @@ window.addEventListener("load", () => {
   }
 
   function startEasterEgg() {
-    if (game) {
+    if (game && !mKeyPressed && !game.gameIsOver) {
       game.activateEasterEgg();
       game.easterEgg.classList.add("fade-in");
+      mKeyPressed = true; // Set the flag to true once 'M' is pressed
     }
   }
 
@@ -31,6 +33,7 @@ window.addEventListener("load", () => {
   restartButton.addEventListener("click", function () {
     if (game && game.gameIsOver) {
       startGame();
+      mKeyPressed = false; // Reset the flag when restarting the game
     }
   });
 
