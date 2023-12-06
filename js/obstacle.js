@@ -9,7 +9,7 @@ class Obstacle {
     this.speed = 10;
 
     this.element = document.createElement("img");
-    this.element.src = "../Game_assets/fireball.png";
+    this.element.src = "Game_assets/fireball.png";
     this.element.style.position = "absolute";
     this.element.classList.add("fireBall");
 

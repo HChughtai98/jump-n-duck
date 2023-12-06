@@ -9,7 +9,7 @@ class Player {
     this.directionY = 0;
 
     this.element = document.createElement("img");
-    this.element.src = "../Game_assets/playerModel.png";
+    this.element.src = "Game_assets/playerModel.png";
     this.element.style.position = "absolute";
     this.element.classList.add("playerModel");
 
