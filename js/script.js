@@ -19,6 +19,17 @@ window.addEventListener("load", () => {
     }
   }
 
+  function showControls() {
+    const controlsPage = document.getElementById("controlsPage");
+    controlsPage.innerHTML =
+      "<h1>Controls</h1><p>Arrow Up: Jump</p><p>Arrow Down: Crouch</p>";
+    controlsPage.style.display = "block";
+
+    controlsPage.addEventListener("click", function () {
+      controlsPage.style.display = "none";
+    });
+  }
+
   document.body.addEventListener("keydown", function (e) {
     if (e.key === "m" || e.key === "M") {
       startEasterEgg();
@@ -30,7 +41,7 @@ window.addEventListener("load", () => {
   });
 
   controlsButton.addEventListener("click", function () {
-    location.reload();
+    showControls();
   });
 
   restartButton.addEventListener("click", function () {

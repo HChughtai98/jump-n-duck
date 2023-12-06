@@ -142,7 +142,7 @@ table {
   display: flex;
   justify-content: center;
   margin-top: 2vw;
-  margin-bottom: 5vw;
+  margin-bottom: 2vw;
   height: 6vw;
 }
 
@@ -168,15 +168,18 @@ button {
 }
 
 #start-btn {
-  height: 5vw;
-  width: 10vw;
-  margin-right: 3vw;
+  height: 6vw;
+  width: 14vw;
 }
 
-#controls-btn {
-  height: 5vw;
-  width: 10vw;
-  font-size: 36px;
+#controlText {
+  height: 4vw;
+  width: 100%;
+  font-size: 30px;
+  font-family: impact;
+  letter-spacing: 2px;
+  color: rgb(255, 255, 255, 0.8);
+  margin-left: 39.5vw;
 }
 
 button:hover {
@@ -239,11 +242,4 @@ button:hover {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 80px;
   color: white;
-}
-
-#placeHoler {
-  width: 500px;
-  height: 500px;
-  color: red;
-  border: solid;
 }
