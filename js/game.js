@@ -4,21 +4,32 @@ class Game {
     this.gameScreen = document.getElementById("gameScreen");
     this.gameOverPage = document.getElementById("endScreenPage");
     this.easterEgg = document.getElementById("easterEgg");
+    this.scoreCounter = document.getElementById("scoreCounter");
     this.height = 923;
     this.width = 1920;
     this.y = 500;
     this.x = 500;
     this.player = null;
     this.obstacles = [];
+    this.score = 0; // Initialize the score to 0
     this.animateId = null;
     this.gameIsOver = false;
     this.restartButton = document.getElementById("restart-btn");
+
+    // Start the interval to increase the score every millisecond
+    setInterval(() => {
+      this.increaseScore();
+    }, 1);
+
+    // Call the method to set up the restart button
+    this.setupRestartButton();
   }
 
   startGame() {
     this.landingPage.style.display = "none";
     this.gameOverPage.style.display = "none";
     this.easterEgg.style.display = "none";
+    this.scoreCounter.style.display = "flex";
     this.gameScreen.style.display = "flex";
 
     this.gameScreen.style.height = `${this.height}px`;
@@ -35,9 +46,6 @@ class Game {
         }
       }, i * 550);
     }
-
-    // Call the method to set up the restart button
-    this.setupRestartButton();
   }
 
   gameLoop() {
@@ -60,11 +68,44 @@ class Game {
     this.player.updatePosition();
   }
 
+  increaseScore() {
+    this.score++;
+    this.updateScoreDisplay();
+  }
+
+  updateScoreDisplay() {
+    this.scoreCounter.textContent = `Score: ${this.score}`;
+  }
+
   endGame() {
     this.gameIsOver = true;
     this.gameScreen.style.display = "none";
-    this.gameOverPage.style.display = "block";
-    this.restartButton.style.display = "block";
+    this.gameOverPage.style.display = "flex";
+    this.restartButton.style.display = "flex";
+
+    // Create a container for Restart button
+    const buttonContainer = document.createElement("div");
+    buttonContainer.appendChild(this.restartButton);
+
+    // Append the container to the gameOverPage
+    this.gameOverPage.innerHTML = ""; // Clear existing content
+    this.gameOverPage.appendChild(buttonContainer);
+
+    // Create a container for the score display
+    const scoreContainer = document.createElement("div");
+    scoreContainer.textContent = `Score: ${this.score}`;
+    scoreContainer.style.color = "white";
+    scoreContainer.style.fontSize = "6em";
+    scoreContainer.style.marginTop = "300px";
+    scoreContainer.style.marginLeft = "700px";
+    scoreContainer.style.fontFamily = "Impact, Charcoal, sans-serif";
+    scoreContainer.style.opacity = "100";
+    scoreContainer.style.padding = "50px";
+    scoreContainer.style.borderRadius = "15px";
+    scoreContainer.style.border = "solid 5px black";
+
+    this.gameOverPage.appendChild(scoreContainer);
+
     if (this.player && this.player.element) {
       this.gameScreen.removeChild(this.player.element);
       this.player = null;
@@ -91,6 +132,12 @@ class Game {
     this.gameScreen.style.display = "flex";
     this.gameOverPage.style.display = "none";
     this.gameIsOver = false;
+    this.resetScore();
+  }
+
+  resetScore() {
+    this.score = 0;
+    this.updateScoreDisplay(); // Update the score display after resetting
   }
 
   activateEasterEgg() {

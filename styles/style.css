@@ -228,3 +228,22 @@ button:hover {
   justify-content: center;
   align-items: center;
 }
+
+#scoreCounter {
+  display: none;
+  position: absolute;
+  margin-left: 85%;
+  margin-top: 2%;
+  height: 100px;
+  width: 250px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 80px;
+  color: white;
+}
+
+#placeHoler {
+  width: 500px;
+  height: 500px;
+  color: red;
+  border: solid;
+}
