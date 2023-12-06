@@ -6,7 +6,7 @@ class Obstacle {
     this.left = 1880;
     /*this.top = Math.floor(Math.random() * (300 + 800)); */
     this.top = top;
-    this.speed = 10;
+    this.speed = 0;
 
     this.element = document.createElement("img");
     this.element.src = "Game_assets/fireball.png";
