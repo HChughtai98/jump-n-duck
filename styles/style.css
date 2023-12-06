@@ -91,7 +91,7 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
+
 article,
 aside,
 details,
@@ -210,10 +210,9 @@ button:hover {
   margin-left: 1000px;
 }
 
-/* Add this at the end of style.css */
 .fade-in {
   opacity: 0;
-  transition: opacity 0s ease forwards; /* Adjust the duration and easing as needed */
+  transition: opacity 0s ease forwards; 
 }
 
 #easterEgg.fade-in {
