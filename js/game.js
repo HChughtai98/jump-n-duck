@@ -100,7 +100,7 @@ class Game {
     this.easterEgg.style.flexDirection = "column";
 
     const easterEggImage = document.createElement("img");
-    easterEggImage.src = "../Game_assets/mat.jpg";
+    easterEggImage.src = "Game_assets/mat.jpg";
     easterEggImage.style.width = "100%";
     easterEggImage.style.height = "100%";
 
