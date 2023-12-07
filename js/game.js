@@ -7,23 +7,20 @@ class Game {
     this.scoreCounter = document.getElementById("scoreCounter");
     this.height = 923;
     this.width = 1920;
-    this.y = 500;
-    this.x = 500;
     this.player = null;
     this.obstacles = [];
-    this.score = 0; // Initialize the score to 0
+    this.score = 0;
     this.animateId = null;
     this.gameIsOver = false;
     this.restartButton = document.getElementById("restart-btn");
+    this.obstaclePushFlag = false;
 
     setInterval(() => {
       this.increaseScore();
-    }, 1);
+    }, 50);
 
     this.setupRestartButton();
     this.setupMusic();
-
-    this.setupRestartButton();
   }
 
   startGame() {
@@ -32,22 +29,31 @@ class Game {
     this.easterEgg.style.display = "none";
     this.scoreCounter.style.display = "flex";
     this.gameScreen.style.display = "flex";
+    this.obstaclePushFlag = true;
 
     this.gameScreen.style.height = `${this.height}px`;
     this.gameScreen.style.width = `${this.width}px`;
 
     this.player = new Player(this.gameScreen);
 
+    this.playBackgroundMusic();
+
+    this.obstaclePush();
+  }
+
+  obstaclePush() {
     for (let i = 0; i < 10000; i++) {
       setTimeout(() => {
-        if (Math.random() >= 0.5) {
+        if (Math.random() >= 0.5 && this.obstaclePushFlag) {
           this.obstacles.push(new Obstacle(this.gameScreen, 800));
-        } else {
+        } else if (Math.random() <= 0.5 && this.obstaclePushFlag) {
           this.obstacles.push(new Obstacle(this.gameScreen, 710));
         }
-      }, i * 550);
+      }, i * 530);
+
+      if (this.gameIsOver) return this.obstaclePushFlag;
+      false;
     }
-    this.playBackgroundMusic();
   }
 
   gameLoop() {
@@ -118,6 +124,8 @@ class Game {
 
     this.obstacles = null;
     this.gameScreen.style.display = "none";
+
+    this.obstaclePushFlag = false;
 
     this.stopBackgroundMusic();
   }

@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
   const backButton = document.getElementById("back-btn");
 
   let game;
-  let mKeyPressed = false; 
+  let mKeyPressed = false;
 
   function startGame() {
     game = new Game();
@@ -16,7 +16,7 @@ window.addEventListener("load", () => {
     if (game && !mKeyPressed && !game.gameIsOver) {
       game.activateEasterEgg();
       game.easterEgg.classList.add("fade-in");
-      mKeyPressed = true; 
+      mKeyPressed = true;
     }
   }
 
@@ -33,11 +33,7 @@ window.addEventListener("load", () => {
   restartButton.addEventListener("click", function () {
     if (game && game.gameIsOver) {
       startGame();
-      mKeyPressed = false; 
+      mKeyPressed = false;
     }
-  });
-
-  backButton.addEventListener("click", function () {
-    location.reload();
   });
 });
