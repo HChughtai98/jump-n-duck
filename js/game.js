@@ -46,10 +46,10 @@ class Game {
       setTimeout(() => {
         if (Math.random() >= 0.5 && this.obstaclePushFlag) {
           this.obstacles.push(new Obstacle(this.gameScreen, 800));
-        } else if (Math.random() <= 0.5 && this.obstaclePushFlag) {
+        } else if (this.obstaclePushFlag) {
           this.obstacles.push(new Obstacle(this.gameScreen, 710));
         }
-      }, i * 530);
+      }, i * 470);
 
       if (this.gameIsOver) return this.obstaclePushFlag;
       false;
