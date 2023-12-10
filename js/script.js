@@ -1,7 +1,6 @@
 window.addEventListener("load", () => {
   const startButton = document.getElementById("start-btn");
   const restartButton = document.getElementById("restart-btn");
-  const backButton = document.getElementById("back-btn");
 
   let game;
   let mKeyPressed = false;

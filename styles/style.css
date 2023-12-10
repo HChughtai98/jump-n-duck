@@ -212,7 +212,7 @@ button:hover {
 
 .fade-in {
   opacity: 0;
-  transition: opacity 0s ease forwards; 
+  transition: opacity 0s ease forwards;
 }
 
 #easterEgg.fade-in {
